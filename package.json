@@ -4,8 +4,13 @@
   "description": "An asynchronous, generic data type processor.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "documentation build index.js -f html -o docs && git add docs"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.13.4"
+  }
 }
