@@ -1,5 +1,7 @@
 /**
  * An asynchronous, generic data type processor.
+ * @param {Object} config An object with properties to be assigned to the new
+ * instance.
  * */
 export default class AsynchronousTypeProcessor {
   static ERROR_MESSAGES = {
@@ -12,10 +14,6 @@ export default class AsynchronousTypeProcessor {
 
   typeMap = {};
 
-  /**
-   * @param {Object} config An object with properties to be assigned to the new
-   * instance.
-   * */
   constructor (config) {
     Object.assign(this, config);
   }
