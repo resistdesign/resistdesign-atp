@@ -2,4 +2,10 @@
 
 An asynchronous, generic data type processor.
 
-[API Docs](https://resistdesign.github.io/resistdesign-atp)
+## Install
+
+`npm i -S resistdesign-atp`
+
+## API Docs
+
+https://resistdesign.github.io/resistdesign-atp
