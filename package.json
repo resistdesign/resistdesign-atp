@@ -1,0 +1,11 @@
+{
+  "name": "resistdesign-atp",
+  "version": "0.0.0",
+  "description": "An asynchronous, generic data type processor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
