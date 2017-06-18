@@ -1,3 +1,6 @@
+/**
+ * An asynchronous, generic data type processor.
+ * */
 export default class AsynchronousTypeProcessor {
   static ERROR_MESSAGES = {
     NON_EXISTENT_TYPE: 'NON_EXISTENT_TYPE',
@@ -13,6 +16,12 @@ export default class AsynchronousTypeProcessor {
     Object.assign(this, config);
   }
 
+  /**
+   * Get a type definition by name.
+   * @param {string} typeName The name of the type.
+   * @returns {Object|Function} A type definition or a primitive type
+   * validator.
+   * */
   getTypeDefinition = async (typeName) => {
     if (this.typeMap instanceof Object) {
       const typeDefinition = this.typeMap[typeName];
@@ -30,6 +39,11 @@ export default class AsynchronousTypeProcessor {
     );
   };
 
+  /**
+   * Get the list of define field names for a type by name.
+   * @param {string} typeName The name of the type.
+   * @returns {Array.<string>} The list of field names.
+   * */
   getFieldList = async (typeName) => {
     const typeDefinition = await this.getTypeDefinition(typeName);
     const { fields } = typeDefinition;
@@ -43,6 +57,14 @@ export default class AsynchronousTypeProcessor {
     );
   };
 
+  /**
+   * Get a field descriptor by type and field name.
+   * @param {string} typeName The name of the type.
+   * @param {string} fieldName The name of the field.
+   * @returns {Object|Function} A field descriptor or a primitive type validator
+   * if the type definition for the given type name is a primitive type
+   * validator.
+   * */
   getFieldDescriptor = async (typeName, fieldName) => {
     const typeDefinition = await this.getTypeDefinition(typeName);
 
@@ -65,6 +87,13 @@ export default class AsynchronousTypeProcessor {
     );
   };
 
+  /**
+   * Process a value for the given field of a given type.
+   * @param {*} value The value to process.
+   * @param {string} typeName The name of the type.
+   * @param {string} fieldName The name of the field.
+   * @returns {*} The processed value.
+   * */
   processValue = async (value, typeName, fieldName) => {
     const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
 
@@ -79,6 +108,12 @@ export default class AsynchronousTypeProcessor {
     }
   };
 
+  /**
+   * Process a list of items of a given type.
+   * @param {Array} itemList The list of items to process.
+   * @param {string} typeName The name of the type.
+   * @returns {Array} The processed list of items.
+   * */
   processItemList = async (itemList, typeName) => {
     if (itemList instanceof Array) {
       const newItems = [];
@@ -108,6 +143,13 @@ export default class AsynchronousTypeProcessor {
     }
   };
 
+  /**
+   * Process an item for of a given type.
+   * @param {Object|*} item The item to process.
+   * @param {string} typeName The name of the type.
+   * @returns {Object|*} The processed item or miscellaneous value when the type
+   * definition for the given type is a primitive type validator.
+   * */
   processItem = async (item, typeName) => {
     const typeDefinition = await this.getTypeDefinition(typeName);
     const fieldList = await this.getFieldList(typeName);
