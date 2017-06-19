@@ -9,7 +9,7 @@ export default class AsynchronousTypeProcessor {
     NON_EXISTENT_FIELD: 'NON_EXISTENT_FIELD',
     MISSING_FIELDS_FOR_TYPE: 'MISSING_FIELDS_FOR_TYPE',
     ITEM_ERROR: 'ITEM_ERROR',
-    ITEM_LIST_ERROR: 'ITEM_LIST_ERROR',
+    ITEM_LIST_ERROR: 'ITEM_LIST_ERROR'
   };
 
   typeMap = {};
