@@ -146,7 +146,7 @@ export default class AsynchronousTypeProcessor {
   };
 
   /**
-   * Process an item for of a given type.
+   * Process an item of a given type.
    * @param {Object|*} item The item to process.
    * @param {string} typeName The name of the type.
    * @returns {Object|*} The processed item or miscellaneous value when the type
