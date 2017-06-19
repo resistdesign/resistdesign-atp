@@ -2,15 +2,21 @@
   "name": "resistdesign-atp",
   "version": "1.0.3",
   "description": "An asynchronous, generic data type processor.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-register --ui exports **/*.spec.js",
     "precommit": "documentation build index.js -f html -o docs && git add docs"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-register": "^6.24.1",
+    "expect.js": "^0.3.1",
     "husky": "^0.13.4"
   },
   "directories": {
