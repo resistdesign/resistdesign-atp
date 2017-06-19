@@ -12,5 +12,16 @@
   "dependencies": {},
   "devDependencies": {
     "husky": "^0.13.4"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resistdesign/resistdesign-atp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/resistdesign/resistdesign-atp/issues"
+  },
+  "homepage": "https://github.com/resistdesign/resistdesign-atp#readme"
 }
