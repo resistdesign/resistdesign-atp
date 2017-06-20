@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --require babel-register --ui exports **/*.spec.js",
-    "precommit": "documentation build index.js -f html -o docs && git add docs"
+    "precommit": "documentation build src/index.js -f html -o docs && git add docs"
   },
   "author": "",
   "license": "MIT",
