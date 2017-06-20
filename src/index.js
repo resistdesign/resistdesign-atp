@@ -90,6 +90,20 @@ export default class AsynchronousTypeProcessor {
   };
 
   /**
+   * Get a feature configuration for the specified type, field and feature name.
+   * @param {string} typeName The name of the type.
+   * @param {string} fieldName The name of the field.
+   * @param {string} featureName The name of the feature.
+   * @returns {Object} The feature configuration or `undefined` if none exists.
+   * */
+  getFieldFeature = async (typeName, fieldName, featureName) => {
+    const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
+    const { features = {} } = fieldDescriptor;
+
+    return features[featureName];
+  };
+
+  /**
    * Process a value for the given field of a given type.
    * @param {*} value The value to process.
    * @param {string} typeName The name of the type.
