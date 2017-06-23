@@ -1,8 +1,7 @@
 {
-  "only": [
-    "./**/*.jsx"
+  "ignore": [
+    "node_modules/**/*.js"
   ],
-  "ignore": false,
   "plugins": [
     "transform-object-rest-spread",
     "transform-class-properties",
@@ -15,7 +14,8 @@
         "targets": {
           "browsers": [
             "last 2 versions"
-          ]
+          ],
+          "node": "current"
         }
       }
     ]
