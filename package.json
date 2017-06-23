@@ -2,7 +2,7 @@
   "name": "resistdesign-atp",
   "version": "1.1.1",
   "description": "An asynchronous, generic data type processor.",
-  "main": "src/index.es",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "mocha --require babel-register --ui exports **/*.spec.jsx",
     "precommit": "documentation build src/index.jsx -f html -o docs && git add docs"
