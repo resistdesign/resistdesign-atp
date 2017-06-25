@@ -168,11 +168,11 @@ export default class AsynchronousTypeProcessor {
    * */
   processItem = async (item, typeName) => {
     const typeDefinition = await this.getTypeDefinition(typeName);
-    const fieldList = await this.getFieldList(typeName);
 
     if (typeDefinition instanceof Function) {
       return await this.processValue(item, typeName);
     } else if (item instanceof Object) {
+      const fieldList = await this.getFieldList(typeName);
       const newItem = {};
       const itemError = new TypeError(
         AsynchronousTypeProcessor.ERROR_MESSAGES.ITEM_ERROR
