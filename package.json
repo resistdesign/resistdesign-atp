@@ -4,7 +4,7 @@
   "description": "An asynchronous, generic data type processor.",
   "main": "src/index.jsx",
   "scripts": {
-    "test": "mocha --require babel-register --ui exports **/*.spec.jsx",
+    "test": "mocha --require resistdesign-babel-register --ui exports **/*.spec.jsx",
     "precommit": "documentation build src/index.jsx -f html -o docs && git add docs"
   },
   "author": "",
@@ -15,9 +15,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
-    "babel-register": "^6.24.1",
     "expect.js": "^0.3.1",
-    "husky": "^0.13.4"
+    "husky": "^0.13.4",
+    "resistdesign-babel-register": "^1.0.1"
   },
   "directories": {
     "doc": "docs"
