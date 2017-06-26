@@ -107,7 +107,7 @@ export default class AsynchronousTypeProcessor {
    * Process a value for the given field of a given type.
    * @param {*} value The value to process.
    * @param {string} typeName The name of the type.
-   * @param {string} fieldName The name of the field.
+   * @param {string} [fieldName] The name of the field.
    * @returns {*} The processed value.
    * */
   async processValue (value, typeName, fieldName) {
@@ -132,6 +132,7 @@ export default class AsynchronousTypeProcessor {
    * */
   async processItemList (itemList, typeName) {
     if (itemList instanceof Array) {
+      const typeDefinition = await this.getTypeDefinition(typeName);
       const newItems = [];
       const itemListError = new TypeError(
         AsynchronousTypeProcessor.ERROR_MESSAGES.ITEM_LIST_ERROR
@@ -142,7 +143,11 @@ export default class AsynchronousTypeProcessor {
         const item = itemList[i];
 
         try {
-          newItems.push(await this.processItem(item, typeName));
+          if (typeDefinition instanceof Function) {
+            newItems.push(await this.processValue(item, typeName));
+          } else {
+            newItems.push(await this.processItem(item, typeName));
+          }
         } catch (error) {
           newItems.push(null);
           itemListError.indices[i] = error;
@@ -167,11 +172,7 @@ export default class AsynchronousTypeProcessor {
    * definition for the given type is a primitive type validator.
    * */
   async processItem (item, typeName) {
-    const typeDefinition = await this.getTypeDefinition(typeName);
-
-    if (typeDefinition instanceof Function) {
-      return await this.processValue(item, typeName);
-    } else if (item instanceof Object) {
+    if (item instanceof Object) {
       const fieldList = await this.getFieldList(typeName);
       const newItem = {};
       const itemError = new TypeError(
