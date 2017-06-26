@@ -24,7 +24,7 @@ export default class AsynchronousTypeProcessor {
    * @returns {Object|Function} A type definition or a primitive type
    * validator.
    * */
-  getTypeDefinition = async (typeName) => {
+  async getTypeDefinition (typeName) {
     if (this.typeMap instanceof Object) {
       const typeDefinition = this.typeMap[typeName];
 
@@ -39,14 +39,14 @@ export default class AsynchronousTypeProcessor {
     throw new TypeError(
       AsynchronousTypeProcessor.ERROR_MESSAGES.NON_EXISTENT_TYPE
     );
-  };
+  }
 
   /**
-   * Get the list of define field names for a type by name.
+   * Get the list of defined field names for a type by name.
    * @param {string} typeName The name of the type.
    * @returns {Array.<string>} The list of field names.
    * */
-  getFieldList = async (typeName) => {
+  async getFieldList (typeName) {
     const typeDefinition = await this.getTypeDefinition(typeName);
     const { fields } = typeDefinition;
 
@@ -57,7 +57,7 @@ export default class AsynchronousTypeProcessor {
     throw new TypeError(
       AsynchronousTypeProcessor.ERROR_MESSAGES.MISSING_FIELDS_FOR_TYPE
     );
-  };
+  }
 
   /**
    * Get a field descriptor by type and field name.
@@ -67,7 +67,7 @@ export default class AsynchronousTypeProcessor {
    * if the type definition for the given type name is a primitive type
    * validator.
    * */
-  getFieldDescriptor = async (typeName, fieldName) => {
+  async getFieldDescriptor (typeName, fieldName) {
     const typeDefinition = await this.getTypeDefinition(typeName);
 
     if (typeDefinition instanceof Function) {
@@ -87,7 +87,7 @@ export default class AsynchronousTypeProcessor {
     throw new TypeError(
       AsynchronousTypeProcessor.ERROR_MESSAGES.NON_EXISTENT_FIELD
     );
-  };
+  }
 
   /**
    * Get a feature configuration for the specified type, field and feature name.
@@ -96,12 +96,12 @@ export default class AsynchronousTypeProcessor {
    * @param {string} featureName The name of the feature.
    * @returns {Object} The feature configuration or `undefined` if none exists.
    * */
-  getFieldFeature = async (typeName, fieldName, featureName) => {
+  async getFieldFeature (typeName, fieldName, featureName) {
     const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
     const { features = {} } = fieldDescriptor;
 
     return features[featureName];
-  };
+  }
 
   /**
    * Process a value for the given field of a given type.
@@ -110,7 +110,7 @@ export default class AsynchronousTypeProcessor {
    * @param {string} fieldName The name of the field.
    * @returns {*} The processed value.
    * */
-  processValue = async (value, typeName, fieldName) => {
+  async processValue (value, typeName, fieldName) {
     const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
 
     if (fieldDescriptor instanceof Function) {
@@ -122,7 +122,7 @@ export default class AsynchronousTypeProcessor {
         return await this.processItem(value, fieldDescriptor.type);
       }
     }
-  };
+  }
 
   /**
    * Process a list of items of a given type.
@@ -130,7 +130,7 @@ export default class AsynchronousTypeProcessor {
    * @param {string} typeName The name of the type.
    * @returns {Array} The processed list of items.
    * */
-  processItemList = async (itemList, typeName) => {
+  async processItemList (itemList, typeName) {
     if (itemList instanceof Array) {
       const newItems = [];
       const itemListError = new TypeError(
@@ -157,7 +157,7 @@ export default class AsynchronousTypeProcessor {
     } else {
       return itemList;
     }
-  };
+  }
 
   /**
    * Process an item of a given type.
@@ -166,7 +166,7 @@ export default class AsynchronousTypeProcessor {
    * @returns {Object|*} The processed item or miscellaneous value when the type
    * definition for the given type is a primitive type validator.
    * */
-  processItem = async (item, typeName) => {
+  async processItem (item, typeName) {
     const typeDefinition = await this.getTypeDefinition(typeName);
 
     if (typeDefinition instanceof Function) {
@@ -204,5 +204,5 @@ export default class AsynchronousTypeProcessor {
     } else {
       return item;
     }
-  };
+  }
 }

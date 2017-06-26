@@ -159,7 +159,7 @@ instance.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getTypeDefinition</span>
+            <span class='code strong strong truncate'>getTypeDefinition(typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -170,7 +170,7 @@ instance.
   <p>Get a type definition by name.</p>
 
 
-  <div class='pre p1 fill-light mt0'>getTypeDefinition</div>
+  <div class='pre p1 fill-light mt0'>getTypeDefinition(typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
 
@@ -228,7 +228,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getFieldList</span>
+            <span class='code strong strong truncate'>getFieldList(typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -236,10 +236,10 @@ validator.
 
   
 
-  <p>Get the list of define field names for a type by name.</p>
+  <p>Get the list of defined field names for a type by name.</p>
 
 
-  <div class='pre p1 fill-light mt0'>getFieldList</div>
+  <div class='pre p1 fill-light mt0'>getFieldList(typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
   
   
 
@@ -296,7 +296,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getFieldDescriptor</span>
+            <span class='code strong strong truncate'>getFieldDescriptor(typeName, fieldName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -307,7 +307,7 @@ validator.
   <p>Get a field descriptor by type and field name.</p>
 
 
-  <div class='pre p1 fill-light mt0'>getFieldDescriptor</div>
+  <div class='pre p1 fill-light mt0'>getFieldDescriptor(typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
 
@@ -375,7 +375,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getFieldFeature</span>
+            <span class='code strong strong truncate'>getFieldFeature(typeName, fieldName, featureName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -386,7 +386,7 @@ validator.
   <p>Get a feature configuration for the specified type, field and feature name.</p>
 
 
-  <div class='pre p1 fill-light mt0'>getFieldFeature</div>
+  <div class='pre p1 fill-light mt0'>getFieldFeature(typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, featureName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
   
   
 
@@ -463,7 +463,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processValue</span>
+            <span class='code strong strong truncate'>processValue(value, typeName, fieldName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -474,7 +474,7 @@ validator.
   <p>Process a value for the given field of a given type.</p>
 
 
-  <div class='pre p1 fill-light mt0'>processValue</div>
+  <div class='pre p1 fill-light mt0'>processValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -549,7 +549,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processItemList</span>
+            <span class='code strong strong truncate'>processItemList(itemList, typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -560,7 +560,7 @@ validator.
   <p>Process a list of items of a given type.</p>
 
 
-  <div class='pre p1 fill-light mt0'>processItemList</div>
+  <div class='pre p1 fill-light mt0'>processItemList(itemList: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
   
   
 
@@ -626,7 +626,7 @@ validator.
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processItem</span>
+            <span class='code strong strong truncate'>processItem(item, typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -637,7 +637,7 @@ validator.
   <p>Process an item of a given type.</p>
 
 
-  <div class='pre p1 fill-light mt0'>processItem</div>
+  <div class='pre p1 fill-light mt0'>processItem(item: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | any), typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | any)</div>
   
   
 
