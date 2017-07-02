@@ -12,6 +12,10 @@ export default class AsynchronousTypeProcessor {
     ITEM_LIST_ERROR: 'ITEM_LIST_ERROR'
   };
 
+  /**
+   * A map with type name keys and type definition values.
+   * @member {Object.<string, Object>}
+   * */
   typeMap = {};
 
   constructor (config) {
@@ -21,17 +25,13 @@ export default class AsynchronousTypeProcessor {
   /**
    * Get a type definition by name.
    * @param {string} typeName The name of the type.
-   * @returns {Object|Function} A type definition or a primitive type
-   * validator.
+   * @returns {Object} A type definition.
    * */
   async getTypeDefinition (typeName) {
     if (this.typeMap instanceof Object) {
       const typeDefinition = this.typeMap[typeName];
 
-      if (
-        typeDefinition instanceof Function ||
-        typeDefinition instanceof Object
-      ) {
+      if (typeDefinition instanceof Object) {
         return typeDefinition;
       }
     }
@@ -63,24 +63,17 @@ export default class AsynchronousTypeProcessor {
    * Get a field descriptor by type and field name.
    * @param {string} typeName The name of the type.
    * @param {string} fieldName The name of the field.
-   * @returns {Object|Function} A field descriptor or a primitive type validator
-   * if the type definition for the given type name is a primitive type
-   * validator.
+   * @returns {Object} A field descriptor.
    * */
   async getFieldDescriptor (typeName, fieldName) {
     const typeDefinition = await this.getTypeDefinition(typeName);
+    const { fields } = typeDefinition;
 
-    if (typeDefinition instanceof Function) {
-      return typeDefinition;
-    } else {
-      const { fields } = typeDefinition;
+    if (fields instanceof Object) {
+      const f = fields[fieldName];
 
-      if (fields instanceof Object) {
-        const f = fields[fieldName];
-
-        if (f instanceof Object) {
-          return f;
-        }
+      if (f instanceof Object) {
+        return f;
       }
     }
 
@@ -104,23 +97,50 @@ export default class AsynchronousTypeProcessor {
   }
 
   /**
+   * Process a primitive value.
+   * @abstract
+   * @param {*} value The value to process.
+   * @param {string} typeName The name of the type.
+   * @param {string|number} key The name of the field or the index.
+   * @returns {*} The processed value.
+   * */
+  async processPrimitiveValue (value, typeName, key) {
+    return value;
+  }
+
+  /**
+   * Process a remote value.
+   * @abstract
+   * @param {*} value The value to process.
+   * @param {string} typeName The name of the type.
+   * @param {string|number} key The name of the field or the index.
+   * @returns {*} The processed value.
+   * */
+  async processRemoteValue (value, typeName, key) {
+    return value;
+  }
+
+  /**
    * Process a value for the given field of a given type.
    * @param {*} value The value to process.
    * @param {string} typeName The name of the type.
-   * @param {string} [fieldName] The name of the field.
+   * @param {string} fieldName The name of the field.
    * @returns {*} The processed value.
    * */
-  async processValue (value, typeName, fieldName) {
+  async processFieldValue (value, typeName, fieldName) {
     const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
+    const { type: fieldTypeName, multiple } = fieldDescriptor;
+    const fieldTypeDefinition = await this.getTypeDefinition(fieldTypeName);
+    const { primitive, remote } = fieldTypeDefinition;
 
-    if (fieldDescriptor instanceof Function) {
-      return await fieldDescriptor(value, typeName, fieldName);
+    if (primitive) {
+      return await this.processPrimitiveValue(value, typeName, fieldName);
+    } else if (remote) {
+      return await this.processRemoteValue(value, typeName, fieldName);
+    } else if (multiple) {
+      return await this.processItemList(value, fieldTypeName);
     } else {
-      if (fieldDescriptor.multiple) {
-        return await this.processItemList(value, fieldDescriptor.type);
-      } else {
-        return await this.processItem(value, fieldDescriptor.type);
-      }
+      return await this.processItem(value, fieldTypeName);
     }
   }
 
@@ -131,8 +151,10 @@ export default class AsynchronousTypeProcessor {
    * @returns {Array} The processed list of items.
    * */
   async processItemList (itemList, typeName) {
+    const typeDefinition = await this.getTypeDefinition(typeName);
+    const { primitive, remote } = typeDefinition;
+
     if (itemList instanceof Array) {
-      const typeDefinition = await this.getTypeDefinition(typeName);
       const newItems = [];
       const itemListError = new TypeError(
         AsynchronousTypeProcessor.ERROR_MESSAGES.ITEM_LIST_ERROR
@@ -143,8 +165,10 @@ export default class AsynchronousTypeProcessor {
         const item = itemList[i];
 
         try {
-          if (typeDefinition instanceof Function) {
-            newItems.push(await this.processValue(item, typeName));
+          if (primitive) {
+            newItems.push(await this.processPrimitiveValue(item, typeName, i));
+          } else if (remote) {
+            newItems.push(await this.processRemoteValue(item, typeName, i));
           } else {
             newItems.push(await this.processItem(item, typeName));
           }
@@ -172,6 +196,9 @@ export default class AsynchronousTypeProcessor {
    * definition for the given type is a primitive type validator.
    * */
   async processItem (item, typeName) {
+    const typeDefinition = await this.getTypeDefinition(typeName);
+    const { primitive, remote } = typeDefinition;
+
     if (item instanceof Object) {
       const fieldList = await this.getFieldList(typeName);
       const newItem = {};
@@ -186,11 +213,29 @@ export default class AsynchronousTypeProcessor {
           const value = item[fieldName];
 
           try {
-            newItem[fieldName] = await this.processValue(
-              value,
-              typeName,
-              fieldName
-            );
+            let processedValue;
+
+            if (primitive) {
+              processedValue = await this.processPrimitiveValue(
+                value,
+                typeName,
+                fieldName
+              );
+            } else if (remote) {
+              processedValue = await this.processRemoteValue(
+                value,
+                typeName,
+                fieldName
+              );
+            } else {
+              processedValue = await this.processFieldValue(
+                value,
+                typeName,
+                fieldName
+              );
+            }
+
+            newItem[fieldName] = processedValue;
           } catch (error) {
             itemError.fields[fieldName] = error;
           }

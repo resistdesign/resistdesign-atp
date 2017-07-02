@@ -2,20 +2,39 @@ import expect from 'expect.js';
 import AsynchronousTypeProcessor from './index';
 
 const TYPE_MAP = {
-  String: value => value,
+  String: {
+    name: 'String',
+    label: 'A Single Line Of Text',
+    primitive: true
+  },
+  Address: {
+    remote: true
+  },
   Contact: {
     fields: {
       firstName: {
         type: 'String'
+      },
+      address: {
+        type: 'Address'
       }
     }
   }
 };
 
-let atp;
+let atp,
+  extendedInstance,
+  primitiveValueFromExtendedInstance,
+  remoteValueFromExtendedInstance;
 
 module.exports = {
   AsynchronousTypeProcessor: {
+    afterEach: () => {
+      atp = undefined;
+      extendedInstance = undefined;
+      primitiveValueFromExtendedInstance = undefined;
+      remoteValueFromExtendedInstance = undefined;
+    },
     'should be a class': () => {
       expect(AsynchronousTypeProcessor).to.be.a(Function);
     },
@@ -42,15 +61,50 @@ module.exports = {
           AsynchronousTypeProcessor.ERROR_MESSAGES.NON_EXISTENT_TYPE
         );
       },
-      'should return a Function for a primitive type validator': async () => {
-        const ptv = await atp.getTypeDefinition('String');
-
-        expect(ptv).to.be.a(Function);
-      },
       'should return a type definition for a valid typeName': async () => {
         const ptv = await atp.getTypeDefinition('Contact');
 
         expect(ptv).to.be.an(Object);
+      }
+    },
+    processItem: {
+      beforeEach: () => {
+        class ATPExtendedClass extends AsynchronousTypeProcessor {
+          async processPrimitiveValue (value, typeName, key) {
+            primitiveValueFromExtendedInstance = value;
+            return value;
+          }
+
+          async processRemoteValue (value, typeName, key) {
+            remoteValueFromExtendedInstance = value;
+            return value;
+          }
+        }
+
+        extendedInstance = new ATPExtendedClass({
+          typeMap: TYPE_MAP
+        });
+        primitiveValueFromExtendedInstance = undefined;
+        remoteValueFromExtendedInstance = undefined;
+      },
+      [`should process types marked as primitive
+      by calling processPrimitiveValue`]: async () => {
+        await extendedInstance.processItem({
+          firstName: 'First'
+        }, 'Contact');
+
+        expect(primitiveValueFromExtendedInstance).to.equal('First');
+      },
+      [`should process types marked as remote
+      by calling processRemoteValue`]: async () => {
+        const line1 = '123 Main St.';
+        await extendedInstance.processItem({
+          address: {
+            line1
+          }
+        }, 'Contact');
+
+        expect(remoteValueFromExtendedInstance.line1).to.equal(line1);
       }
     }
   }
