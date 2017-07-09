@@ -25,74 +25,97 @@
               
                 
                 <li><a
-                  href='#asynchronoustypeprocessor'
+                  href='#abstracttypeprocessor'
                   class=" toggle-sibling">
-                  AsynchronousTypeProcessor
+                  AbstractTypeProcessor
                   <span class='icon'>▸</span>
                 </a>
                 
                 <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#AbstractTypeProcessor.valueExists'
+                        class='regular pre-open'>
+                        .valueExists
+                      </a></li>
+                    
+                    </ul>
                   
                   
                     <ul class='list-reset py1-ul pl1'>
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#typeMap'
+                        href='#AbstractTypeProcessor#typeMap'
                         class='regular pre-open'>
                         #typeMap
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#getTypeDefinition'
+                        href='#AbstractTypeProcessor#getTypeDefinition'
                         class='regular pre-open'>
                         #getTypeDefinition
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#getFieldList'
+                        href='#AbstractTypeProcessor#getFieldList'
                         class='regular pre-open'>
                         #getFieldList
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#getFieldDescriptor'
+                        href='#AbstractTypeProcessor#getFieldDescriptor'
                         class='regular pre-open'>
                         #getFieldDescriptor
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#getFieldFeature'
+                        href='#AbstractTypeProcessor#getTypeFeature'
+                        class='regular pre-open'>
+                        #getTypeFeature
+                      </a></li>
+                      
+                      <li><a
+                        href='#AbstractTypeProcessor#getFieldFeature'
                         class='regular pre-open'>
                         #getFieldFeature
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#processPrimitiveValue'
+                        href='#AbstractTypeProcessor#processPrimitiveValue'
                         class='regular pre-open'>
                         #processPrimitiveValue
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#processRemoteValue'
+                        href='#AbstractTypeProcessor#processRemoteValue'
                         class='regular pre-open'>
                         #processRemoteValue
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#processFieldValue'
+                        href='#AbstractTypeProcessor#processValue'
+                        class='regular pre-open'>
+                        #processValue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AbstractTypeProcessor#processValueList'
+                        class='regular pre-open'>
+                        #processValueList
+                      </a></li>
+                      
+                      <li><a
+                        href='#AbstractTypeProcessor#processFieldValue'
                         class='regular pre-open'>
                         #processFieldValue
                       </a></li>
                       
                       <li><a
-                        href='#AsynchronousTypeProcessor#processItemList'
-                        class='regular pre-open'>
-                        #processItemList
-                      </a></li>
-                      
-                      <li><a
-                        href='#AsynchronousTypeProcessor#processItem'
+                        href='#AbstractTypeProcessor#processItem'
                         class='regular pre-open'>
                         #processItem
                       </a></li>
@@ -120,8 +143,8 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='asynchronoustypeprocessor'>
-      AsynchronousTypeProcessor
+    <h3 class='fl m0' id='abstracttypeprocessor'>
+      AbstractTypeProcessor
     </h3>
     
     
@@ -131,7 +154,7 @@
   <p>An asynchronous, generic data type processor.</p>
 
 
-  <div class='pre p1 fill-light mt0'>new AsynchronousTypeProcessor(config: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>new AbstractTypeProcessor(config: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -148,7 +171,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
 	    An object with properties to be assigned to the new
 instance.
 
@@ -168,12 +192,86 @@ instance.
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='AbstractTypeProcessor.valueExists'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>valueExists(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Check to see if a value exists.</p>
+
+
+  <div class='pre p1 fill-light mt0'>valueExists(value: any): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    The value to check.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        A flag designating whether or not the value exists.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
 
   
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#typeMap'>
+    <div class='border-bottom' id='AbstractTypeProcessor#typeMap'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -224,7 +322,7 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#getTypeDefinition'>
+    <div class='border-bottom' id='AbstractTypeProcessor#getTypeDefinition'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -292,7 +390,7 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#getFieldList'>
+    <div class='border-bottom' id='AbstractTypeProcessor#getFieldList'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -360,7 +458,7 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#getFieldDescriptor'>
+    <div class='border-bottom' id='AbstractTypeProcessor#getFieldDescriptor'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -437,7 +535,86 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#getFieldFeature'>
+    <div class='border-bottom' id='AbstractTypeProcessor#getTypeFeature'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getTypeFeature(typeName, featureName)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Get a feature configuration for the specified type and feature name.</p>
+
+
+  <div class='pre p1 fill-light mt0'>getTypeFeature(typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, featureName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the type.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>featureName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the feature.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        The feature configuration or 
+<code>undefined</code>
+ if none exists.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AbstractTypeProcessor#getFieldFeature'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -525,11 +702,11 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#processPrimitiveValue'>
+    <div class='border-bottom' id='AbstractTypeProcessor#processPrimitiveValue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processPrimitiveValue(value, typeName, key)</span>
+            <span class='code strong strong truncate'>processPrimitiveValue(value, typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -540,7 +717,7 @@ instance.
   <p>Process a primitive value.</p>
 
 
-  <div class='pre p1 fill-light mt0'>processPrimitiveValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): any</div>
+  <div class='pre p1 fill-light mt0'>processPrimitiveValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -568,15 +745,6 @@ instance.
           <div>
             <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    The name of the type.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
-	    The name of the field or the index.
 
           </div>
           
@@ -611,11 +779,11 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#processRemoteValue'>
+    <div class='border-bottom' id='AbstractTypeProcessor#processRemoteValue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processRemoteValue(value, typeName, key)</span>
+            <span class='code strong strong truncate'>processRemoteValue(value, typeName)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -626,7 +794,7 @@ instance.
   <p>Process a remote value.</p>
 
 
-  <div class='pre p1 fill-light mt0'>processRemoteValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): any</div>
+  <div class='pre p1 fill-light mt0'>processRemoteValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -654,15 +822,6 @@ instance.
           <div>
             <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    The name of the type.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
-	    The name of the field or the index.
 
           </div>
           
@@ -697,7 +856,161 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#processFieldValue'>
+    <div class='border-bottom' id='AbstractTypeProcessor#processValue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>processValue(value, typeName)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Process a value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>processValue(value: any, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    The value to process.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the type of the value.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        The processed value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AbstractTypeProcessor#processValueList'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>processValueList(valueList, typeName)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Process a list of values.</p>
+
+
+  <div class='pre p1 fill-light mt0'>processValueList(valueList: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>valueList</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</code>
+	    The list of values to process.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the type of the values.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        The list of processed values.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AbstractTypeProcessor#processFieldValue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -783,84 +1096,7 @@ instance.
       </div>
     </div>
   
-    <div class='border-bottom' id='AsynchronousTypeProcessor#processItemList'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>processItemList(itemList, typeName)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Process a list of items of a given type.</p>
-
-
-  <div class='pre p1 fill-light mt0'>processItemList(itemList: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, typeName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>itemList</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
-	    The list of items to process.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>typeName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The name of the type.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
-        The processed list of items.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='AsynchronousTypeProcessor#processItem'>
+    <div class='border-bottom' id='AbstractTypeProcessor#processItem'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -917,8 +1153,7 @@ instance.
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | any)</code>:
-        The processed item or miscellaneous value when the type
-definition for the given type is a primitive type validator.
+        The processed item.
 
       
     

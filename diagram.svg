@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+<rect x="801.66669" y="412.16666" fill="none" stroke="#000000" stroke-miterlimit="10" width="131.66667" height="97.49992"/>
+<rect x="230.83333" y="207.16667" fill="#EBFFEB" stroke="#000000" stroke-miterlimit="10" width="230" height="258.33334"/>
+<text transform="matrix(1 0 0 1 230.83334 192.16635)" font-family="'MyriadPro-Regular'" font-size="12px">process value</text>
+<text transform="matrix(1 0 0 1 21.66504 52.16602)" font-family="'MyriadPro-Regular'" font-size="28.28789px">Abstract Type Processor</text>
+<text transform="matrix(1 0 0 1 345.8335 179.66643)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">value</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan></text>
+<text transform="matrix(1 0 0 1 128.3335 179.6665)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">value list</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan></text>
+<text transform="matrix(1 0 0 1 63.33334 261.33301)" font-family="'MyriadPro-Regular'" font-size="12px">process value</text>
+<text transform="matrix(1 0 0 1 21.6665 192.16635)" font-family="'MyriadPro-Regular'" font-size="12px">process value list</text>
+<text transform="matrix(1 0 0 1 21.6665 88.83301)" font-family="'MyriadPro-Regular'" font-size="12px">All methods are async</text>
+<text transform="matrix(1 0 0 1 248.33365 233.83366)" font-family="'MyriadPro-Regular'" font-size="12px">get type info</text>
+<text transform="matrix(1 0 0 1 271.66699 271.33368)" font-family="'MyriadPro-Regular'" font-size="12px">primitive</text>
+<text transform="matrix(1 0 0 1 603.33331 163.00027)" font-family="'MyriadPro-Regular'" font-size="12px">primitive</text>
+<text transform="matrix(1 0 0 1 546.66669 163.00027)" fill="#0000FF" font-family="'MyriadPro-Regular'" font-size="12px">abstract</text>
+<text transform="matrix(1 0 0 1 546.66669 236.33257)" fill="#0000FF" font-family="'MyriadPro-Regular'" font-size="12px">abstract</text>
+<text transform="matrix(1 0 0 1 271.66699 308.00034)" font-family="'MyriadPro-Regular'" font-size="12px">remote</text>
+<text transform="matrix(1 0 0 1 603.33331 236.33278)" font-family="'MyriadPro-Regular'" font-size="12px">remote</text>
+<text transform="matrix(1 0 0 1 642.50031 621.33368)" font-family="'MyriadPro-Regular'" font-size="12px">multiple</text>
+<text transform="matrix(1 0 0 1 642.50061 593.00037)" font-family="'MyriadPro-Regular'" font-size="12px">not multiple</text>
+<text transform="matrix(1 0 0 1 615.83289 578.00037)" font-family="'MyriadPro-Regular'" font-size="12px">get field info</text>
+<text transform="matrix(1 0 0 1 271.66693 349.00018)" font-family="'MyriadPro-Regular'" font-size="12px">item</text>
+<text transform="matrix(1 0 0 1 271.66693 415.66684)" font-family="'MyriadPro-Regular'" font-size="12px">return processed value</text>
+<text transform="matrix(1 0 0 1 271.66693 435.66684)" fill="#ABABAB" font-family="'MyriadPro-Regular'" font-size="12px">throw invalid type</text>
+<text transform="matrix(1 0 0 1 43.33359 387.33328)" font-family="'MyriadPro-Regular'" font-size="12px">return processed value list</text>
+<g>
+	<text transform="matrix(1 0 0 1 43.33359 407.33328)"><tspan x="0" y="0" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">throw mapped</tspan><tspan x="0" y="14.40039" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">errors from indices</tspan></text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 43.33359 314.83328)"><tspan x="0" y="0" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">if value list</tspan><tspan x="0" y="14.40039" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">is not an array,</tspan><tspan x="0" y="28.7998" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">undefined or null</tspan><tspan x="0" y="43.2002" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">throw invalid list</tspan></text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 824.50024 442.49997)"><tspan x="0" y="0" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">if item</tspan><tspan x="0" y="14.40039" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">is not an object,</tspan><tspan x="0" y="28.7998" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">undefined or null</tspan><tspan x="0" y="43.2002" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">throw invalid item</tspan></text>
+</g>
+<text transform="matrix(1 0 0 1 603.33325 315.50043)" font-family="'MyriadPro-Regular'" font-size="12px">item</text>
+<text transform="matrix(1 0 0 1 699.16663 308.50043)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">item</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan></text>
+<text transform="matrix(1 0 0 1 702.49988 530.33411)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">value</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan><tspan x="0" y="28.7998" font-family="'MyriadPro-Regular'" font-size="12px">field</tspan></text>
+<text transform="matrix(1 0 0 1 699.16663 230.16708)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">value</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan></text>
+<text transform="matrix(1 0 0 1 699.16663 155.16708)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">value</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">type</tspan></text>
+<text transform="matrix(1 0 0 1 603.33325 545.50043)" font-family="'MyriadPro-Regular'" font-size="12px">field</text>
+<text transform="matrix(1 0 0 1 624.83325 387.00012)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12px">for each field in type</tspan><tspan x="0" y="14.40039" font-family="'MyriadPro-Regular'" font-size="12px">(process all fields regardless</tspan><tspan x="0" y="28.7998" font-family="'MyriadPro-Regular'" font-size="12px">of existing values)</tspan></text>
+<text transform="matrix(1 0 0 1 615.83325 349.00027)" font-family="'MyriadPro-Regular'" font-size="12px">get type info</text>
+<text transform="matrix(1 0 0 1 615.83325 364.16693)" font-family="'MyriadPro-Regular'" font-size="12px">get fields for type</text>
+<text transform="matrix(1 0 0 1 30.83325 224.24522)" font-family="'MyriadPro-Regular'" font-size="12px">for each index</text>
+<text transform="matrix(1 0 0 1 672.49976 435.66724)" font-family="'MyriadPro-Regular'" font-size="12px">process field</text>
+<text transform="matrix(1 0 0 1 615.83252 461.50012)" font-family="'MyriadPro-Regular'" font-size="12px">return processed object</text>
+<text transform="matrix(1 0 0 1 615.83252 661.50012)" font-family="'MyriadPro-Regular'" font-size="12px">return processed field value</text>
+<text transform="matrix(1 0 0 1 615.83252 685.66675)" fill="#ABABAB" font-family="'MyriadPro-Regular'" font-size="12px">throw invalid field</text>
+<text transform="matrix(1 0 0 1 642.50073 204.08336)" font-family="'MyriadPro-Regular'" font-size="12px">do nothing, return value</text>
+<text transform="matrix(1 0 0 1 642.50073 274.49994)" font-family="'MyriadPro-Regular'" font-size="12px">do nothing, return value</text>
+<text transform="matrix(1 0 0 1 615.83252 484.66702)"><tspan x="0" y="0" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">throw mapped</tspan><tspan x="0" y="14.40039" fill="#FF0000" font-family="'MyriadPro-Regular'" font-size="12px">errors from fields</tspan></text>
+<rect x="603.33331" y="179.66658" fill="none" stroke="#000000" stroke-miterlimit="10" width="198.33333" height="40.83333"/>
+<rect x="603.33331" y="251.33325" fill="none" stroke="#000000" stroke-miterlimit="10" width="198.33333" height="40.83333"/>
+<rect x="603.33331" y="331.75024" fill="none" stroke="#000000" stroke-miterlimit="10" width="198.33333" height="177.91634"/>
+<rect x="603.33331" y="562.58368" fill="none" stroke="#000000" stroke-miterlimit="10" width="198.33333" height="140.41634"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="349.16666" y1="267.16666" x2="625.83331" y2="200.08325"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="340.83334" y1="308.00034" x2="632.5" y2="271.74991"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="330.83334" y1="349.00018" x2="610.83331" y2="403"/>
+<rect x="21.66667" y="207.16667" fill="none" stroke="#000000" stroke-miterlimit="10" width="160.83333" height="258.33334"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="142.5" y1="261.33301" x2="240.88747" y2="292.1666"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="743.33331" y1="432.16666" x2="760.83331" y2="569.66669"/>
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="622.5,621.33368 102.08334,621.33368 102.08334,453 "/>
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="622.5,593.00037 345.83334,593.00037 345.83334,453 "/>
+</svg>
