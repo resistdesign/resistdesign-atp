@@ -9,5 +9,3 @@ An asynchronous, generic data type processor.
 ## API Docs
 
 https://resistdesign.github.io/resistdesign-atp
-
-![Diagram](diagram.svg)
