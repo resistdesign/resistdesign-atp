@@ -70,12 +70,12 @@ module.exports = {
     processItem: {
       beforeEach: () => {
         class ATPExtendedClass extends AsynchronousTypeProcessor {
-          async processPrimitiveValue (value, typeName, key) {
+          async processPrimitiveValue ({ value }) {
             primitiveValueFromExtendedInstance = value;
             return value;
           }
 
-          async processRemoteValue (value, typeName, key) {
+          async processRemoteValue ({ value }) {
             remoteValueFromExtendedInstance = value;
             return value;
           }
@@ -90,8 +90,11 @@ module.exports = {
       [`should process types marked as primitive
       by calling processPrimitiveValue`]: async () => {
         await extendedInstance.processItem({
-          firstName: 'First'
-        }, 'Contact');
+          item: {
+            firstName: 'First'
+          },
+          typeName: 'Contact'
+        });
 
         expect(primitiveValueFromExtendedInstance).to.equal('First');
       },
@@ -99,10 +102,13 @@ module.exports = {
       by calling processRemoteValue`]: async () => {
         const line1 = '123 Main St.';
         await extendedInstance.processItem({
-          address: {
-            line1
-          }
-        }, 'Contact');
+          item: {
+            address: {
+              line1
+            }
+          },
+          typeName: 'Contact'
+        });
 
         expect(remoteValueFromExtendedInstance.line1).to.equal(line1);
       }

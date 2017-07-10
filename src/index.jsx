@@ -123,43 +123,63 @@ export default class AbstractTypeProcessor {
   /**
    * Process a primitive value.
    * @abstract
-   * @param {*} value The value to process.
-   * @param {string} typeName The name of the type.
+   * @param {Object} input The input for the method.
+   * @param {*} input.value The value to process.
+   * @param {string} input.typeName The name of the type.
    * @returns {*} The processed value.
    * */
-  async processPrimitiveValue (value, typeName) {
+  async processPrimitiveValue (input) {
+    const { value, typeName } = input;
+
     return value;
   }
 
   /**
    * Process a remote value.
    * @abstract
-   * @param {*} value The value to process.
-   * @param {string} typeName The name of the type.
+   * @param {Object} input The input for the method.
+   * @param {*} input.value The value to process.
+   * @param {string} input.typeName The name of the type.
    * @returns {*} The processed value.
    * */
-  async processRemoteValue (value, typeName) {
+  async processRemoteValue (input) {
+    const { value, typeName } = input;
+
     return value;
   }
 
   /**
    * Process a value.
-   * @param {*} value The value to process.
-   * @param {string} typeName The name of the type of the value.
+   * @param {Object} input The input for the method.
+   * @param {*} input.value The value to process.
+   * @param {string} input.typeName The name of the type of the value.
    * @returns {*} The processed value.
    * */
-  async processValue (value, typeName) {
+  async processValue (input) {
+    const { value, typeName } = input;
     const typeDefinition = await this.getTypeDefinition(typeName);
     const { primitive, remote } = typeDefinition;
 
     let newValue;
 
     if (primitive) {
-      newValue = await this.processPrimitiveValue(value, typeName);
+      newValue = await this.processPrimitiveValue({
+        ...input,
+        value,
+        typeName
+      });
     } else if (remote) {
-      newValue = await this.processRemoteValue(value, typeName);
+      newValue = await this.processRemoteValue({
+        ...input,
+        value,
+        typeName
+      });
     } else {
-      newValue = await this.processItem(value, typeName);
+      newValue = await this.processItem({
+        ...input,
+        value,
+        typeName
+      });
     }
 
     return newValue;
@@ -167,11 +187,14 @@ export default class AbstractTypeProcessor {
 
   /**
    * Process a list of values.
-   * @param {Array.<*>} valueList The list of values to process.
-   * @param {string} typeName The name of the type of the values.
+   * @param {Object} input The input for the method.
+   * @param {Array.<*>} input.valueList The list of values to process.
+   * @param {string} input.typeName The name of the type of the values.
    * @returns {Array} The list of processed values.
    * */
-  async processValueList (valueList, typeName) {
+  async processValueList (input) {
+    const { valueList, typeName } = input;
+
     if (valueList instanceof Array) {
       const newList = [];
       const errorIndices = {};
@@ -180,7 +203,11 @@ export default class AbstractTypeProcessor {
         const value = valueList[i];
 
         try {
-          newList.push(await this.processValue(value, typeName));
+          newList.push(await this.processValue({
+            ...input,
+            value,
+            typeName
+          }));
         } catch (error) {
           errorIndices[i] = error;
         }
@@ -208,21 +235,32 @@ export default class AbstractTypeProcessor {
 
   /**
    * Process a value for the given field of a given type.
-   * @param {*} value The value to process.
-   * @param {string} typeName The name of the type.
-   * @param {string} fieldName The name of the field.
+   * @param {Object} input The input for the method.
+   * @param {*} input.value The value to process.
+   * @param {string} input.typeName The name of the type.
+   * @param {string} input.fieldName The name of the field.
    * @returns {*} The processed value.
    * */
-  async processFieldValue (value, typeName, fieldName) {
+  async processFieldValue (input) {
+    const { value, typeName, fieldName } = input;
+
     const fieldDescriptor = await this.getFieldDescriptor(typeName, fieldName);
     const { type: fieldTypeName, multiple } = fieldDescriptor;
 
     let newValue;
 
     if (multiple) {
-      newValue = await this.processValueList(value, fieldTypeName);
+      newValue = await this.processValueList({
+        ...input,
+        valueList: value,
+        typeName: fieldTypeName
+      });
     } else {
-      newValue = await this.processValue(value, fieldTypeName);
+      newValue = await this.processValue({
+        ...input,
+        value,
+        typeName: fieldTypeName
+      });
     }
 
     return newValue;
@@ -230,11 +268,14 @@ export default class AbstractTypeProcessor {
 
   /**
    * Process an item of a given type.
-   * @param {Object|*} item The item to process.
-   * @param {string} typeName The name of the type.
+   * @param {Object} input The input for the method.
+   * @param {Object|*} input.item The item to process.
+   * @param {string} input.typeName The name of the type.
    * @returns {Object|*} The processed item.
    * */
-  async processItem (item, typeName) {
+  async processItem (input) {
+    const { item, typeName } = input;
+
     if (item instanceof Object) {
       const fieldList = await this.getFieldList(typeName);
       const newItem = {};
@@ -245,11 +286,12 @@ export default class AbstractTypeProcessor {
         const value = item[fieldName];
 
         try {
-          newItem[fieldName] = await this.processFieldValue(
+          newItem[fieldName] = await this.processFieldValue({
+            ...input,
             value,
             typeName,
             fieldName
-          );
+          });
         } catch (error) {
           errorFields[fieldName] = error;
         }
