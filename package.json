@@ -1,6 +1,6 @@
 {
   "name": "resistdesign-atp",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "An asynchronous, generic data type processor.",
   "main": "src/index.jsx",
   "scripts": {
