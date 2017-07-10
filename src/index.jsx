@@ -177,7 +177,7 @@ export default class AbstractTypeProcessor {
     } else {
       newValue = await this.processItem({
         ...input,
-        value,
+        item: value,
         typeName
       });
     }
